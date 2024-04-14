@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KFC Login</title>
+    <style>
+        h1{
+    margin: auto;
+    width: 50%;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 50px;
+    font-style: italic
+}
+div{
+    text-align: center;
+}
+button{
+    height: 50px;
+    margin: 5px;
+    width: 110px;
+    border-radius: 7px;
+    border-width: 1px;
+    border-color:whitesmoke;
+    background-color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 15px;
+}
+input[type="submit"]
+{
+    height: 50px;
+    margin: 5px;
+    width: 110px;
+    border-radius: 7px;
+    border-width: 1px;
+    border-color:whitesmoke;
+    background-color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 15px;
+}
+.bts{
+    cursor: pointer;
+    font-size: 14px;
+    background-color: white;
+    border:1px solid  #ed0331;
+    padding: 10px;
+    color: #ed0331;;
+    text-align: center;
+    border-radius: 8px;
+    width: 200px ;
+    transition: 0.04s ;
+    }
+.bts:hover{
+    background-color: #ffe0eb;
+    color: #ed0331;
+    }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Login Page</h1>
+        <br><br><br><br><br>
+        <form  id="lgform">
+            <label for="">Email:</label>
+            <input  id="lgemail" type="text">
+            <br><br>
+            <label for="">Password:</label>
+            <input id="lgpass" type="text">
+            <br><br>
+            <input type="submit">
+        </form>
+    </div>
+    <br><br><br><br>
+    <div>
+        <h3>If Not signed up</h3>
+        <div>
+            <a href="signup.html">
+            <button >Sign up</button>
+            </a>
+        </div>
+    </div>
+    <br><br><br><br><br>
+    <div>
+        <h3>Home Page</h3>
+        <a href="./kfc.html">
+        <button class="bts">Home Page</button>
+        </a>
+    </div>
+</body>
+</html>
+<script>let form =document.getElementById("lgform")
+    let email =document.getElementById("lgemail")
+    let pass =document.getElementById("lgpass")
+    
+    form.addEventListener('submit',function()
+    {
+        event.preventDefault();
+        
+        let userdetails={
+            email: email.value,
+            password: pass.value
+        }
+        let details= JSON.parse(localStorage.getItem("userdetails")) || {}
+        if(userdetails.email === details.email && userdetails.password === details.password)
+        {
+            localStorage.setItem("isAuth","Authenticated")
+            window.location.href="./kfc.html"
+            alert("Login sucess");
+        }
+        else
+        {
+            alert("Wrong Details")
+        }
+    })
+    </script>
+<script src="logout.js"></script>
