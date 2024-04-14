@@ -123,6 +123,20 @@
             position: relative;
             margin: auto;
         }
+        .dot {
+        height: 15px;
+        width: 15px;
+        margin: 0 2px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.6s ease;
+        }
+
+        .active {
+        background-color: #717171;
+        }
+
         .fade {
         animation-name: fade;
         animation-duration: 1.5s;
@@ -135,6 +149,19 @@
 
         @media only screen and (max-width: 300px) {
         .text {font-size: 11px}
+        }
+        .dot-con{
+            position:absolute;
+            top: 80%;
+            left: 20%;
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            color: white;
+            font-size: 16px;
+            padding: 12px 24px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
         }
         .imgslide{
             margin-top: 35px;
@@ -559,14 +586,14 @@ let offslide =document.getElementsByClassName("ofdc")
     if(n > offslide.length){
         slideIndex2=1
     }
-    if(n < 0){
+    if(n < 1){
         slideIndex2=offslide.length
     }
     for (let i = 0; i < offslide.length-1; i++) {
     offslide[i].style.display = "none";
-
     }
     offslide[slideIndex2-1].style.display = "block";
+
 }
 </script>
 <script src="./logout.js"></script>
